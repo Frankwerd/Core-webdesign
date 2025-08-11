@@ -334,3 +334,10 @@ a.program-card-link:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
+
+/* --- Additions for About Us Page --- */
+.vision-mission-section {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 3rem 2rem;
+}
