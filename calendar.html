@@ -24,55 +24,21 @@
 
             <div class="calendar-card">
                 <div class="calendar-header">
-                    <h3>July 2024</h3>
+                    <h3 id="month-name">Month Year</h3>
                 </div>
-                <div class="calendar-grid">
-                    <div class="calendar-day day-name">SUN</div>
-                    <div class="calendar-day day-name">MON</div>
-                    <div class="calendar-day day-name">TUE</div>
-                    <div class="calendar-day day-name">WED</div>
-                    <div class="calendar-day day-name">THU</div>
-                    <div class="calendar-day day-name">FRI</div>
-                    <div class="calendar-day day-name">SAT</div>
-                    <!-- Populate with days -->
-                    <div class="calendar-day"></div><div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div><div class="calendar-day">4</div><div class="calendar-day">5</div><div class="calendar-day">6</div>
-                    <div class="calendar-day">7</div><div class="calendar-day">8</div><div class="calendar-day">9</div><div class="calendar-day">10</div><div class="calendar-day">11</div><div class="calendar-day">12</div><div class="calendar-day">13</div>
-                    <div class="calendar-day">14</div><div class="calendar-day">15</div><div class="calendar-day">16</div><div class="calendar-day">17</div><div class="calendar-day today">18</div><div class="calendar-day">19</div><div class="calendar-day">20</div>
-                    <div class="calendar-day">21</div><div class="calendar-day">22</div><div class="calendar-day">23</div><div class="calendar-day">24</div><div class="calendar-day">25</div><div class="calendar-day">26</div><div class="calendar-day">27</div>
-                    <div class="calendar-day">28</div><div class="calendar-day">29</div><div class="calendar-day">30</div><div class="calendar-day">31</div>
-                </div>
+                <!-- This grid will be filled by calendar.js -->
+                <div id="calendar-grid" class="calendar-grid"></div>
             </div>
         </div>
 
         <div class="container">
-            <h2>Upcoming in July</h2>
-            <div class="event-listing">
-                <div class="event-date">JUL<br>15</div>
-                <div class="event-details">
-                    <h3>Financial Planning Workshop</h3>
-                    <p>Learn the fundamentals of creating a personal budget and setting financial goals. Perfect for beginners!</p>
-                </div>
-                <a href="#" class="btn btn-primary">Register</a>
-            </div>
-            <div class="event-listing">
-                <div class="event-date">JUL<br>20</div>
-                <div class="event-details">
-                    <h3>Investment Strategies Seminar</h3>
-                    <p>Discover different investment options and strategies to grow your wealth over time. Q&A with experts.</p>
-                </div>
-                <a href="#" class="btn btn-primary">Register</a>
-            </div>
-            <div class="event-listing">
-                <div class="event-date">JUL<br>25</div>
-                <div class="event-details">
-                    <h3>Support Program Application Deadline</h3>
-                    <p>Final day to submit applications for our financial assistance and membership program. Don't miss out!</p>
-                </div>
-                <a href="#" class="btn btn-secondary">Learn More</a>
-            </div>
+            <h2>Upcoming Events</h2>
+            <!-- Your event listings would go here -->
         </div>
     </main>
     <!-- FOOTER-PLACEHOLDER -->
-    <script src="main.js"></script>
+
+    <script src="main.js"></script> <!-- This loads the header/footer -->
+    <script src="calendar.js"></script> <!-- This makes the calendar smart -->
 </body>
 </html>
