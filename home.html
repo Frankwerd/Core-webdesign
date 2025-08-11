@@ -3,55 +3,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>CORESSWC - Empowering Communities Through Financial Wellness</title>
-<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
-      :root {
-        --muted-earthy-green: #5a7d65;
-        --warm-beige: #f5f1e9;
-        --muted-coral: #e8a18a;
-        --off-white: #fcfaf8;
-        --dark-green: #3d5244;
-      }
-      body {
-        font-family: "Open Sans", sans-serif;
-      }
-      .btn-primary {
-        @apply bg-[var(--muted-earthy-green)] text-white hover:bg-[var(--dark-green)] transition-colors duration-300;
-      }
-      .btn-secondary {
-        @apply bg-[var(--warm-beige)] text-[var(--muted-earthy-green)] hover:bg-[#e9e4d9] transition-colors duration-300;
-      }
-    </style>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-[var(--off-white)] text-[var(--dark-green)]">
 <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--warm-beige)] px-6 py-4 shadow-sm md:px-12">
-<div class="flex items-center gap-3">
-<svg class="h-8 w-8 text-[var(--muted-earthy-green)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
-</svg>
-<h2 class="text-[var(--dark-green)] text-xl font-bold tracking-wide">CORESSWC</h2>
-</div>
-<nav class="hidden items-center gap-8 md:flex">
-<a class="text-[var(--dark-green)] text-base font-semibold hover:text-[var(--muted-coral)] transition-colors" href="#">About</a>
-<a class="text-[var(--dark-green)] text-base font-semibold hover:text-[var(--muted-coral)] transition-colors" href="#">Programs</a>
-<a class="text-[var(--dark-green)] text-base font-semibold hover:text-[var(--muted-coral)] transition-colors" href="#">Get Involved</a>
-<a class="text-[var(--dark-green)] text-base font-semibold hover:text-[var(--muted-coral)] transition-colors" href="#">Contact</a>
-</nav>
-<a class="btn-primary font-bold shadow-md hidden h-11 min-w-[100px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full px-6 md:flex" href="#">
-<span class="truncate">Donate</span>
-</a>
-<button class="text-3xl md:hidden">
-<svg height="1em" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg">
-<path d="M3 12h18M3 6h18M3 18h18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</button>
-</header>
+<!-- HEADER-PLACEHOLDER -->
 <main class="flex-1">
 <section class="relative flex min-h-[60vh] items-center justify-center p-6 text-center text-white md:min-h-[70vh]">
 <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAJkBL24hZDFbw4rJ9mQNTiZJTygDIfuh75YMmvyK2toPmkpyMXGH4iMvHGb87mkHqVuSD5DS9AlgbmzTzQEKMsCRTF8sKSRzdjqDeXNB9Vd6fOgbFbdwEciH5rgedGO73f-Ov6ugC4Vxndao__GIS9_9seRO-x8iuEhEoqRhcVXfObiEXZgEFAJ9_lS5QFHxYTI0qPZoj44EP8MjDmJbd8c5drvB7O5PExurJmetNYSyO09oc3VcUzsJkYTEaSHcZR-PgbuTAH7Qo");'></div>
@@ -138,33 +96,18 @@
 <h2 class="mb-4 text-3xl font-bold md:text-4xl">Get Involved</h2>
 <p class="mx-auto mb-8 max-w-2xl text-lg text-[var(--dark-green)]/80 md:text-xl">Your support makes our work possible. Join us in empowering our community.</p>
 <div class="flex flex-col justify-center gap-4 sm:flex-row">
-<a class="btn-primary flex h-14 min-w-[160px] max-w-[480px] grow cursor-pointer items-center justify-center overflow-hidden rounded-full px-8 text-lg font-bold shadow-lg sm:grow-0" href="#">
+<a class="btn-primary flex h-14 min-w-[160px] max-w-[480px] grow cursor-pointer items-center justify-center overflow-hidden rounded-full px-8 text-lg font-bold shadow-lg sm:grow-0" href="get-involved.html">
 <span class="truncate">Donate Now</span>
 </a>
-<a class="btn-secondary flex h-14 min-w-[160px] max-w-[480px] grow cursor-pointer items-center justify-center overflow-hidden rounded-full px-8 text-lg font-bold shadow-lg sm:grow-0" href="#">
+<a class="btn-secondary flex h-14 min-w-[160px] max-w-[480px] grow cursor-pointer items-center justify-center overflow-hidden rounded-full px-8 text-lg font-bold shadow-lg sm:grow-0" href="get-involved.html">
 <span class="truncate">Volunteer</span>
 </a>
 </div>
 </div>
 </section>
 </main>
-<footer class="bg-[var(--dark-green)] text-white">
-<div class="container mx-auto px-6 py-12">
-<div class="flex flex-col items-center justify-between md:flex-row">
-<div class="mb-6 md:mb-0">
-<h2 class="text-2xl font-bold tracking-wide">CORESSWC</h2>
-<p class="text-white/70">Empowering communities since 2024.</p>
-</div>
-<div class="mb-6 flex gap-6 md:mb-0">
-<a class="hover:text-[var(--muted-coral)] transition-colors" href="#">Privacy Policy</a>
-<a class="hover:text-[var(--muted-coral)] transition-colors" href="#">Terms of Service</a>
-<a class="hover:text-[var(--muted-coral)] transition-colors" href="#">Contact Us</a>
-</div>
-<div class="text-white/70">© 2024 CORESSWC. All rights reserved.</div>
+<!-- FOOTER-PLACEHOLDER -->
 </div>
 </div>
-</footer>
-</div>
-</div>
-
+<script src="main.js"></script>
 </body></html>
