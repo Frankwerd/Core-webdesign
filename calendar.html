@@ -1,261 +1,48 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>CORESSWC Calendar</title>
-<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
-        :root {
-            --bg-off-white: #FAF8F5;
-            --text-dark-green: #3D4C42;
-            --brand-green: #6A8E7F;
-            --brand-beige: #EAE2D9;
-            --brand-coral: #E8A88B;
-            --soft-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        }
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--bg-off-white);
-            color: var(--text-dark-green);
-        }
-        .soft-shadow {
-            box-shadow: var(--soft-shadow);
-        }
-        .header-bg {
-            background-color: rgba(250, 248, 245, 0.8);
-        }
-    </style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events - CORESSWC</title>
+
+    <!-- Link to the master stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="flex flex-col min-h-screen">
-<header class="header-bg backdrop-blur-md sticky top-0 z-10">
-<div class="container mx-auto px-6 py-4">
-<div class="flex items-center justify-between">
-<a class="flex items-center gap-3" href="#">
-<svg class="h-8 w-8 text-[var(--brand-green)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
-</svg>
-<h1 class="text-2xl font-bold text-[var(--text-dark-green)]">CORESSWC</h1>
-</a>
-<nav class="hidden md:flex items-center gap-8 text-base">
-<a class="hover:text-[var(--brand-green)] transition-colors" href="#">About</a>
-<a class="hover:text-[var(--brand-green)] transition-colors" href="#">Programs</a>
-<a class="hover:text-[var(--brand-green)] transition-colors" href="#">Resources</a>
-<a class="font-bold text-[var(--brand-green)]" href="#">Events</a>
-<a class="hover:text-[var(--brand-green)] transition-colors" href="#">Contact</a>
-</nav>
-<a class="hidden md:inline-block bg-[var(--brand-coral)] text-white font-bold py-2 px-6 rounded-lg hover:opacity-90 transition-opacity soft-shadow" href="#">
-                        Donate
-                    </a>
-<button class="md:hidden">
-<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</button>
-</div>
-</div>
-</header>
-<main class="container mx-auto px-6 py-12 flex-grow">
-<div class="text-center mb-12">
-<h2 class="text-4xl md:text-5xl font-bold text-[var(--text-dark-green)] mb-4">Upcoming Events</h2>
-<p class="text-lg text-[var(--brand-green)] max-w-2xl mx-auto">Stay informed about our workshops, seminars, and program deadlines. Join us to enhance your financial literacy.</p>
-</div>
-<div class="bg-white rounded-2xl p-6 md:p-10 soft-shadow mb-12">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-<div class="flex flex-col">
-<div class="flex items-center justify-between mb-4">
-<button class="p-2 rounded-full hover:bg-[var(--brand-beige)] transition-colors">
-<svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg>
-</button>
-<h3 class="text-xl font-bold text-center">July 2024</h3>
-<div class="w-8"></div>
-</div>
-<div class="grid grid-cols-7 text-center gap-y-2">
-<div class="font-semibold text-[var(--brand-green)] text-sm">S</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">M</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">T</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">W</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">T</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">F</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">S</div>
-<div class="col-start-2 py-2 text-gray-400">1</div>
-<div class="py-2 text-gray-400">2</div>
-<div class="py-2 text-gray-400">3</div>
-<div class="py-2 text-gray-400">4</div>
-<div class="py-2 text-gray-400">5</div>
-<div class="py-2 text-gray-400">6</div>
-<div class="py-2">7</div>
-<div class="py-2">8</div>
-<div class="py-2">9</div>
-<div class="py-2">10</div>
-<div class="py-2">11</div>
-<div class="py-2">12</div>
-<div class="py-2">13</div>
-<div class="py-2">14</div>
-<button class="py-2 relative">
-<span class="relative z-10">15</span>
-<span class="absolute inset-0 bg-[var(--brand-beige)] rounded-full"></span>
-</button>
-<div class="py-2">16</div>
-<div class="py-2">17</div>
-<div class="py-2">18</div>
-<div class="py-2">19</div>
-<button class="py-2 relative">
-<span class="relative z-10">20</span>
-<span class="absolute inset-0 bg-[var(--brand-beige)] rounded-full"></span>
-</button>
-<div class="py-2">21</div>
-<div class="py-2">22</div>
-<div class="py-2">23</div>
-<div class="py-2">24</div>
-<button class="py-2 relative">
-<span class="relative z-10 text-white">25</span>
-<span class="absolute inset-0 bg-[var(--brand-coral)] rounded-full"></span>
-</button>
-<div class="py-2">26</div>
-<div class="py-2">27</div>
-<div class="py-2">28</div>
-<div class="py-2">29</div>
-<div class="py-2">30</div>
-<div class="py-2">31</div>
-</div>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center justify-between mb-4">
-<div class="w-8"></div>
-<h3 class="text-xl font-bold text-center">August 2024</h3>
-<button class="p-2 rounded-full hover:bg-[var(--brand-beige)] transition-colors">
-<svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg>
-</button>
-</div>
-<div class="grid grid-cols-7 text-center gap-y-2">
-<div class="font-semibold text-[var(--brand-green)] text-sm">S</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">M</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">T</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">W</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">T</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">F</div>
-<div class="font-semibold text-[var(--brand-green)] text-sm">S</div>
-<div class="col-start-5 py-2">1</div>
-<div class="py-2">2</div>
-<div class="py-2">3</div>
-<div class="py-2">4</div>
-<button class="py-2 relative">
-<span class="relative z-10">5</span>
-<span class="absolute inset-0 bg-[var(--brand-beige)] rounded-full"></span>
-</button>
-<div class="py-2">6</div>
-<div class="py-2">7</div>
-<div class="py-2">8</div>
-<div class="py-2">9</div>
-<div class="py-2">10</div>
-<div class="py-2">11</div>
-<button class="py-2 relative">
-<span class="relative z-10">12</span>
-<span class="absolute inset-0 bg-[var(--brand-beige)] rounded-full"></span>
-</button>
-<div class="py-2">13</div>
-<div class="py-2">14</div>
-<div class="py-2">15</div>
-<div class="py-2">16</div>
-<div class="py-2">17</div>
-<div class="py-2">18</div>
-<div class="py-2">19</div>
-<button class="py-2 relative">
-<span class="relative z-10 text-white">20</span>
-<span class="absolute inset-0 bg-[var(--brand-coral)] rounded-full"></span>
-</button>
-<div class="py-2">21</div>
-<div class="py-2">22</div>
-<div class="py-2">23</div>
-<div class="py-2">24</div>
-<div class="py-2">25</div>
-<div class="py-2">26</div>
-<div class="py-2">27</div>
-<div class="py-2">28</div>
-<div class="py-2">29</div>
-<div class="py-2">30</div>
-<div class="py-2">31</div>
-</div>
-</div>
-</div>
-</div>
-<div class="space-y-8">
-<div>
-<h3 class="text-2xl font-bold mb-6 pb-2 border-b-2 border-[var(--brand-beige)]">July 2024</h3>
-<div class="space-y-4">
-<div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white hover:soft-shadow transition-all">
-<div class="flex-shrink-0 bg-[var(--brand-beige)] p-3 rounded-lg mt-1">
-<svg class="text-[var(--brand-green)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM208,208H48V96H208V208ZM48,80V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80Z"></path></svg>
-</div>
-<div>
-<h4 class="font-bold text-lg">Financial Planning Workshop</h4>
-<p class="text-[var(--brand-green)]">July 15, 2024 | 10:00 AM - 12:00 PM</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white hover:soft-shadow transition-all">
-<div class="flex-shrink-0 bg-[var(--brand-beige)] p-3 rounded-lg mt-1">
-<svg class="text-[var(--brand-green)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM208,208H48V96H208V208ZM48,80V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80Z"></path></svg>
-</div>
-<div>
-<h4 class="font-bold text-lg">Investment Strategies Seminar</h4>
-<p class="text-[var(--brand-green)]">July 20, 2024 | 2:00 PM - 4:00 PM</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white hover:soft-shadow transition-all">
-<div class="flex-shrink-0 bg-[var(--brand-coral)] p-3 rounded-lg mt-1">
-<svg class="text-white" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,88a12,12,0,1,1,12,12A12,12,0,0,1,112,88Z"></path></svg>
-</div>
-<div>
-<h4 class="font-bold text-lg">Program Application Deadline</h4>
-<p class="text-[var(--brand-green)]">July 25, 2024 | 5:00 PM</p>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h3 class="text-2xl font-bold mb-6 pb-2 border-b-2 border-[var(--brand-beige)]">August 2024</h3>
-<div class="space-y-4">
-<div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white hover:soft-shadow transition-all">
-<div class="flex-shrink-0 bg-[var(--brand-beige)] p-3 rounded-lg mt-1">
-<svg class="text-[var(--brand-green)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM208,208H48V96H208V208ZM48,80V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80Z"></path></svg>
-</div>
-<div>
-<h4 class="font-bold text-lg">Budgeting Basics Workshop</h4>
-<p class="text-[var(--brand-green)]">August 5, 2024 | 11:00 AM - 1:00 PM</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white hover:soft-shadow transition-all">
-<div class="flex-shrink-0 bg-[var(--brand-beige)] p-3 rounded-lg mt-1">
-<svg class="text-[var(--brand-green)]" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM208,208H48V96H208V208ZM48,80V48H72v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80Z"></path></svg>
-</div>
-<div>
-<h4 class="font-bold text-lg">Retirement Planning Seminar</h4>
-<p class="text-[var(--brand-green)]">August 12, 2024 | 3:00 PM - 5:00 PM</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-lg hover:bg-white hover:soft-shadow transition-all">
-<div class="flex-shrink-0 bg-[var(--brand-coral)] p-3 rounded-lg mt-1">
-<svg class="text-white" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,88a12,12,0,1,1,12,12A12,12,0,0,1,112,88Z"></path></svg>
-</div>
-<div>
-<h4 class="font-bold text-lg">Next Program Application Deadline</h4>
-<p class="text-[var(--brand-green)]">August 20, 2024 | 6:00 PM</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-<footer class="bg-[var(--brand-beige)] mt-16">
-<div class="container mx-auto px-6 py-8 text-center text-[var(--text-dark-green)]">
-<p>© 2024 CORESSWC. All Rights Reserved.</p>
-</div>
-</footer>
+
+<!-- HEADER-PLACEHOLDER -->
+
+<div class="container">
+    <h1>Upcoming Events</h1>
+    <p>Stay informed about our workshops, seminars, and program deadlines. Join us to enhance your financial literacy.</p>
+
+    <!-- This is where the main content from your original calendar.html goes -->
+    <img src="https://storage.googleapis.com/coresswc-media/calendar_placeholder.png" alt="A calendar showing events" style="width:100%; max-width:600px; margin: 1rem auto; display: block;">
+
+    <h2>July 2024</h2>
+    <ul>
+        <li><strong>Financial Planning Workshop:</strong> July 15, 2024 | 10:00 AM - 12:00 PM</li>
+        <li><strong>Investment Strategies Seminar:</strong> July 20, 2024 | 2:00 PM - 4:00 PM</li>
+        <li><strong>Program Application Deadline:</strong> July 25, 2024 | 5:00 PM</li>
+    </ul>
+
+    <h2>August 2024</h2>
+    <ul>
+        <li><strong>Budgeting Basics Workshop:</strong> August 5, 2024 | 11:00 AM - 1:00 PM</li>
+        <li><strong>Retirement Planning Seminar:</strong> August 12, 2024 | 3:00 PM - 5:00 PM</li>
+        <li><strong>Next Program Application Deadline:</strong> August 20, 2024 | 6:00 PM</li>
+    </ul>
+    <!-- End of main content -->
+
 </div>
 
-</body></html>
+<!-- FOOTER-PLACEHOLDER -->
+
+<!-- This script tag loads the header and footer -->
+<script src="main.js"></script>
+
+</body>
+</html>
