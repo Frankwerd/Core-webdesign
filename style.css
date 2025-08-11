@@ -321,3 +321,16 @@ footer a:hover {
     font-weight: bold; cursor: pointer; transition: background-color 0.3s ease;
 }
 .form-card button:hover { background-color: #4a5d2f; }
+
+/* Styling for clickable program cards */
+a.program-card-link {
+    text-decoration: none;
+    color: inherit; /* Inherits the text color from the parent */
+    display: block; /* Makes the whole area clickable */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.program-card-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
