@@ -1,79 +1,323 @@
-/* CORESSWC Master Stylesheet */
+/* =================================
+   CORESSWC MASTER STYLESHEET
+   ================================= */
 
-/* 1. Brand Variables */
+/* 1. Global Setup & Variables */
 :root {
-  --primary-color: #556B2F; /* Earthy Green */
-  --secondary-color: #F5F5DC; /* Warm Beige */
-  --accent-color: #E9967A;   /* Muted Coral */
-  --text-color: #333333;
-  --background-color: #FFFAF0; /* Off-White */
-  --main-font: 'Open Sans', sans-serif;
+    --primary-color: #556B2F; /* Earthy Green */
+    --secondary-color: #f7f5f2; /* Warm Off-white/Beige */
+    --accent-color: #E9967A;   /* Muted Coral */
+    --text-color: #333333;
+    --heading-color: #4a5d2f; /* Darker Green for Headings */
+    --background-color: #FFFAF0; /* Off-White/Cream - Not used as main BG */
+    --card-bg: #FFFFFF;
+    --footer-bg: #4a5d2f;
+    --main-font: 'Open Sans', sans-serif;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    --border-radius: 12px;
 }
 
-/* 2. General Body Styling */
 body {
-  font-family: var(--main-font);
-  background-color: var(--background-color);
-  color: var(--text-color);
-  margin: 0;
-  line-height: 1.6;
+    font-family: var(--main-font);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.7;
+    font-size: 16px;
 }
 
-/* 3. Reusable Components Styling (Header, Footer, Nav) */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: 3rem; }
+h3 { font-size: 1.4rem; }
+
+/* 2. Header & Navigation */
 header {
-  background-color: #ffffff;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: var(--card-bg);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
 header nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.2s ease;
 }
 
 header nav a:hover {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .donate-button {
-  background-color: var(--accent-color);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
+    background-color: var(--accent-color);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
 }
 
 .donate-button:hover {
-    background-color: #D88569;
+    background-color: #d88569;
 }
 
-
+/* 3. Footer */
 footer {
-  background-color: #333;
-  color: white;
-  padding: 2rem;
-  text-align: center;
+    background-color: var(--footer-bg);
+    color: #e0e0e0;
+    padding: 3rem 2rem;
 }
 
-/* 4. Content Styling */
-.container {
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 0 2rem;
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
 }
 
-h1, h2, h3 {
-  color: var(--primary-color);
+.footer-about p {
+    max-width: 350px;
+    color: #ccc;
 }
+
+footer h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.footer-copyright {
+    text-align: center;
+    border-top: 1px solid #5a6e3f;
+    padding-top: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    color: #aaa;
+}
+
+/* 4. Reusable Components (Buttons, Cards) */
+.btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid #ddd;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-2-cols { grid-template-columns: 1fr 1fr; }
+.grid-3-cols { grid-template-columns: repeat(3, 1fr); }
+.grid-4-cols { grid-template-columns: repeat(4, 1fr); }
+
+/* ================== PAGE SPECIFIC STYLES ================== */
+
+/* --- Home Page --- */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://storage.googleapis.com/coresswc-media/hero-background.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 8rem 2rem;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 3.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 1rem auto 2rem;
+}
+
+.section-mission, .section-testimonials {
+    text-align: center;
+    max-width: 700px;
+}
+
+.program-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    overflow: hidden;
+}
+.program-card img { width: 100%; height: 180px; object-fit: cover; }
+.program-card-content { padding: 1.5rem; }
+.program-card-content.more-card {
+    background-color: var(--accent-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.program-card-content.more-card h3 { color: white; }
+
+/* --- About Us Page --- */
+.about-history-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.about-history-section img {
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+.team-member, .core-value {
+    text-align: center;
+}
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    margin-bottom: 1rem;
+}
+
+/* --- Programs Page --- */
+.program-section {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Get Involved Page --- */
+.get-involved-banner {
+    background-color: #fdf5f2;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+.dark-cta-banner {
+    background-color: var(--footer-bg);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: var(--border-radius);
+}
+.dark-cta-banner h2, .dark-cta-banner p { color: white; }
+
+
+/* --- Calendar Page --- */
+.calendar-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.calendar-header { display: flex; justify-content: space-between; align-items: center; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+.calendar-day { padding: 1rem; }
+.calendar-day.day-name { font-weight: bold; }
+.calendar-day.today { background-color: var(--accent-color); color: white; border-radius: 50%; }
+.event-listing { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; border: 1px solid #eee; border-radius: var(--border-radius); margin-bottom: 1rem; }
+.event-date { background-color: #f7f5f2; padding: 1rem; text-align: center; border-radius: 8px; font-weight: bold; }
+.event-details { flex: 1; }
+.event-listing .btn { padding: 8px 16px; }
+
+
+/* --- Contact Page --- */
+.contact-page-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+.form-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+.form-card form { display: flex; flex-direction: column; }
+.form-card label { margin-bottom: 0.5rem; font-weight: 600; color: #555; }
+.form-card input, .form-card textarea {
+    width: 100%; padding: 0.8rem; margin-bottom: 1.5rem;
+    border: 1px solid #ccc; border-radius: 4px;
+    font-family: var(--main-font); font-size: 1rem;
+    box-sizing: border-box;
+}
+.form-card input:focus, .form-card textarea:focus { outline: none; border-color: var(--primary-color); }
+.form-card button {
+    background-color: var(--primary-color); color: white; padding: 1rem;
+    border: none; border-radius: 5px; font-size: 1rem;
+    font-weight: bold; cursor: pointer; transition: background-color 0.3s ease;
+}
+.form-card button:hover { background-color: #4a5d2f; }
