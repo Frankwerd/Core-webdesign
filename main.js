@@ -75,6 +75,24 @@ document.addEventListener("DOMContentLoaded", function() {
         };
         slides.forEach(setSlidePosition);
 
+        // --- START: NEW CODE FOR VIDEO PLAYBACK ---
+        slides.forEach(slide => {
+            const video = slide.querySelector('.testimonial-video');
+            if (video) {
+                slide.addEventListener('mouseover', () => {
+                    // The play() method returns a promise, which we can catch
+                    // to prevent console errors if the play request is interrupted.
+                    video.play().catch(e => {
+                        console.log("Video play interrupted");
+                    });
+                });
+                slide.addEventListener('mouseout', () => {
+                    video.pause();
+                });
+            }
+        });
+        // --- END: NEW CODE FOR VIDEO PLAYBACK ---
+
         let currentSlide = 0;
 
         const moveToSlide = (targetIndex) => {
