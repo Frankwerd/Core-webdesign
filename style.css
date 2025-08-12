@@ -29,7 +29,7 @@ body {
 .container {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem; /* MODIFIED */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -209,11 +209,18 @@ footer a:hover {
     max-width: 700px;
 }
 
+/* ADD THIS ENTIRE NEW BLOCK */
+.section-bg-1 {
+    background-color: #f5f1e9;
+}
+
+.section-bg-2 {
+    background-color: #fcfaf8;
+}
+
 /* ADD THIS NEW RULE */
 .section-mission {
-    background-color: #fdf5f2;
     padding: 4rem 2rem;
-    border-radius: var(--border-radius);
     text-align: center;
 }
 
@@ -271,7 +278,6 @@ footer a:hover {
 
 /* --- Get Involved Page --- */
 .get-involved-banner {
-    background-color: #fdf5f2;
     padding: 4rem 2rem;
     text-align: center;
     border-radius: var(--border-radius);
