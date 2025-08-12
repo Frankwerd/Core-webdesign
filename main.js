@@ -72,24 +72,34 @@ document.addEventListener("DOMContentLoaded", function() {
     const dots = Array.from(nav.children);
     let currentSlide = 0;
 
-    const updateSlidePositions = () => {
-        slides.forEach((slide, index) => {
-            slide.classList.remove('current-slide', 'prev-slide', 'next-slide');
+const updateSlidePositions = () => {
+    slides.forEach((slide, index) => {
+        // Remove all positioning classes before reapplying
+        slide.classList.remove('current-slide', 'prev-slide', 'next-slide', 'prev-outer-slide', 'next-outer-slide');
 
-            if (index === currentSlide) {
-                slide.classList.add('current-slide');
-            } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
-                slide.classList.add('prev-slide');
-            } else if (index === (currentSlide + 1) % slides.length) {
-                slide.classList.add('next-slide');
-            }
-        });
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        const nextIndex = (currentSlide + 1) % slides.length;
+        const prevOuterIndex = (currentSlide - 2 + slides.length) % slides.length;
+        const nextOuterIndex = (currentSlide + 2) % slides.length;
 
-        // Update navigation dots
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('current-slide', index === currentSlide);
-        });
-    };
+        if (index === currentSlide) {
+            slide.classList.add('current-slide');
+        } else if (index === prevIndex) {
+            slide.classList.add('prev-slide');
+        } else if (index === nextIndex) {
+            slide.classList.add('next-slide');
+        } else if (index === prevOuterIndex) {
+            slide.classList.add('prev-outer-slide');
+        } else if (index === nextOuterIndex) {
+            slide.classList.add('next-outer-slide');
+        }
+    });
+
+    // Update navigation dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('current-slide', index === currentSlide);
+    });
+};
 
     const moveToSlide = (targetIndex) => {
         // Stop and reset all videos before moving
