@@ -346,15 +346,15 @@ a.program-card-link:hover {
 }
 
 /* =================================
-   Testimonial Carousel Styles (V5 - Panoramic)
+   Testimonial Carousel Styles (V6 - Extra Wide Panoramic)
    ================================= */
 .testimonial-carousel {
     position: relative;
     width: 100%;
-    max-width: 1400px; /* Widen container for 5-slide view */
+    max-width: 1600px; /* INCREASED: Make the carousel container even wider */
     margin: 0 auto;
     height: 560px;
-    perspective: 2500px; /* Deeper perspective for a better 3D effect */
+    perspective: 3000px; /* INCREASED: Deeper perspective for the wide layout */
 }
 
 .carousel-track-container {
@@ -383,7 +383,7 @@ a.program-card-link:hover {
     transition: transform 500ms ease-in-out, opacity 500ms ease-in-out, filter 500ms ease-in-out;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    opacity: 0; /* Start all slides hidden */
+    opacity: 0;
     filter: blur(4px);
     transform: scale(0.6);
     background-color: var(--card-bg);
@@ -399,29 +399,29 @@ a.program-card-link:hover {
 
 /* Inner Slides (Immediate Neighbors) */
 .carousel-slide.prev-slide {
-    transform: translateX(-50%) scale(0.8) rotateY(30deg);
+    transform: translateX(-65%) scale(0.8) rotateY(25deg);
     opacity: 0.7;
     filter: blur(1px);
     z-index: 5;
 }
 
 .carousel-slide.next-slide {
-    transform: translateX(50%) scale(0.8) rotateY(-30deg);
+    transform: translateX(65%) scale(0.8) rotateY(-25deg);
     opacity: 0.7;
     filter: blur(1px);
     z-index: 5;
 }
 
-/* ADDED: Outer Slides */
+/* Outer Slides */
 .carousel-slide.prev-outer-slide {
-    transform: translateX(-105%) scale(0.7) rotateY(35deg);
+    transform: translateX(-130%) scale(0.7) rotateY(35deg);
     opacity: 0.4;
     filter: blur(2px);
     z-index: 1;
 }
 
 .carousel-slide.next-outer-slide {
-    transform: translateX(105%) scale(0.7) rotateY(-35deg);
+    transform: translateX(130%) scale(0.7) rotateY(-35deg);
     opacity: 0.4;
     filter: blur(2px);
     z-index: 1;
@@ -460,12 +460,12 @@ a.program-card-link:hover {
     cursor: pointer;
     font-size: 1.8rem;
     color: #333;
-    z-index: 20; /* Keep buttons on top of everything */
+    z-index: 20;
 }
 
 /* MOVED buttons to the far edges of the wide container */
-.carousel-button--left { left: -30px; }
-.carousel-button--right { right: -30px; }
+.carousel-button--left { left: 10px; }
+.carousel-button--right { right: 10px; }
 
 .carousel-nav {
     display: flex;
