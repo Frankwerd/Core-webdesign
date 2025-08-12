@@ -346,19 +346,20 @@ a.program-card-link:hover {
 }
 
 /* =================================
-   Testimonial Carousel Styles (V2)
+   Testimonial Carousel Styles (V3 - Final)
    ================================= */
 .testimonial-carousel {
     position: relative;
-    max-width: 800px; /* Widen the container to see other slides */
+    width: 100%; /* Use full available width */
+    max-width: 90%; /* Make the carousel wider as requested */
     margin: 0 auto;
-    height: 560px; /* Adjust height slightly for nav dots */
-    perspective: 1000px; /* This is crucial for the 3D effect */
+    height: 560px;
+    perspective: 1500px; /* Increase perspective for a deeper 3D effect */
 }
 
 .carousel-track-container {
-    height: 520px; /* The track container holds the slides */
-    overflow: visible; /* Allow overflowing slides to be seen */
+    height: 520px;
+    overflow: visible;
     position: relative;
 }
 
@@ -367,8 +368,8 @@ a.program-card-link:hover {
     padding: 0;
     margin: 0;
     height: 100%;
-    transition: transform 500ms ease-in-out; /* Smoother transition */
-    transform-style: preserve-3d; /* Key for 3D positioning */
+    transition: transform 500ms ease-in-out;
+    transform-style: preserve-3d;
 }
 
 .carousel-slide {
@@ -376,31 +377,38 @@ a.program-card-link:hover {
     top: 0;
     left: 0;
     right: 0;
-    margin: 0 auto; /* Center the slides */
-    width: 320px; /* Width of the phone-style video */
+    margin: 0 auto;
+    width: 320px;
     height: 520px;
     transition: transform 500ms ease-in-out, opacity 500ms ease-in-out, filter 500ms ease-in-out;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    opacity: 0.4;
-    filter: blur(2px);
-    transform: scale(0.8);
+    opacity: 0; /* Start all slides as transparent */
+    filter: blur(3px);
+    transform: scale(0.7);
+    background-color: var(--card-bg); /* Add a solid background to prevent transparency issues */
 }
 
+/* The current slide is centered, fully visible, and scaled up */
 .carousel-slide.current-slide {
     opacity: 1;
     filter: blur(0);
     transform: scale(1);
+    z-index: 5; /* Ensure it's on top */
 }
 
+/* The slide to the left */
 .carousel-slide.prev-slide {
-    transform: translateX(-60%) scale(0.8);
+    transform: translateX(-55%) scale(0.8) rotateY(15deg);
     opacity: 0.6;
+    filter: blur(1px);
 }
 
+/* The slide to the right */
 .carousel-slide.next-slide {
-    transform: translateX(60%) scale(0.8);
+    transform: translateX(55%) scale(0.8) rotateY(-15deg);
     opacity: 0.6;
+    filter: blur(1px);
 }
 
 
@@ -408,7 +416,7 @@ a.program-card-link:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--border-radius); /* Ensure video corners are rounded */
+    border-radius: var(--border-radius);
 }
 
 .testimonial-overlay {
@@ -422,31 +430,26 @@ a.program-card-link:hover {
     text-align: left;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
-.testimonial-overlay p {
-    font-size: 0.9rem;
-    margin: 0 0 0.5rem;
-}
-.testimonial-overlay strong {
-    font-size: 1rem;
-}
+.testimonial-overlay p { font-size: 0.9rem; margin: 0 0 0.5rem; }
+.testimonial-overlay strong { font-size: 1rem; }
 
 .carousel-button {
     position: absolute;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #333;
-    z-index: 10; /* Ensure buttons are on top */
+    z-index: 10;
 }
 
-.carousel-button--left { left: 0px; } /* Adjust position */
-.carousel-button--right { right: 0px; } /* Adjust position */
+.carousel-button--left { left: 20px; }
+.carousel-button--right { right: 20px; }
 
 .carousel-nav {
     display: flex;
@@ -462,6 +465,7 @@ a.program-card-link:hover {
     background: #ccc;
     margin: 0 8px;
     cursor: pointer;
+    transition: background-color 250ms ease;
 }
 
 .carousel-indicator.current-slide {
