@@ -57,3 +57,47 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error('Failed to fetch footer:', error);
         });
 });
+
+/* =================================
+   Testimonial Carousel Logic
+   ================================= */
+document.addEventListener("DOMContentLoaded", function() {
+    const track = document.querySelector('.carousel-track');
+    if (track) {
+        const slides = Array.from(track.children);
+        const nextButton = document.querySelector('.carousel-button--right');
+        const prevButton = document.querySelector('.carousel-button--left');
+        const slideWidth = slides[0].getBoundingClientRect().width;
+
+        // Arrange the slides next to one another
+        const setSlidePosition = (slide, index) => {
+            slide.style.left = slideWidth * index + 'px';
+        };
+        slides.forEach(setSlidePosition);
+
+        let currentSlide = 0;
+
+        const moveToSlide = (targetIndex) => {
+            track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
+            currentSlide = targetIndex;
+        };
+
+        // When I click left, move slides to the left
+        prevButton.addEventListener('click', e => {
+            let prevIndex = currentSlide - 1;
+            if (prevIndex < 0) {
+                prevIndex = slides.length - 1; // Loop to the end
+            }
+            moveToSlide(prevIndex);
+        });
+
+        // When I click right, move slides to the right
+        nextButton.addEventListener('click', e => {
+            let nextIndex = currentSlide + 1;
+            if (nextIndex >= slides.length) {
+                nextIndex = 0; // Loop to the beginning
+            }
+            moveToSlide(nextIndex);
+        });
+    }
+});
