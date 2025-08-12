@@ -59,63 +59,90 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* =================================
-   Testimonial Carousel Logic
+   Testimonial Carousel Logic (V2)
    ================================= */
 document.addEventListener("DOMContentLoaded", function() {
     const track = document.querySelector('.carousel-track');
-    if (track) {
-        const slides = Array.from(track.children);
-        const nextButton = document.querySelector('.carousel-button--right');
-        const prevButton = document.querySelector('.carousel-button--left');
-        const slideWidth = slides[0].getBoundingClientRect().width;
+    if (!track) return;
 
-        // Arrange the slides next to one another
-        const setSlidePosition = (slide, index) => {
-            slide.style.left = slideWidth * index + 'px';
-        };
-        slides.forEach(setSlidePosition);
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button--right');
+    const prevButton = document.querySelector('.carousel-button--left');
+    const nav = document.querySelector('.carousel-nav');
+    const dots = Array.from(nav.children);
+    let currentSlide = 0;
 
-        // --- START: NEW CODE FOR VIDEO PLAYBACK ---
+    const updateSlidePositions = () => {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('current-slide', 'prev-slide', 'next-slide');
+
+            if (index === currentSlide) {
+                slide.classList.add('current-slide');
+            } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
+                slide.classList.add('prev-slide');
+            } else if (index === (currentSlide + 1) % slides.length) {
+                slide.classList.add('next-slide');
+            }
+        });
+
+        // Update navigation dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('current-slide', index === currentSlide);
+        });
+    };
+
+    const moveToSlide = (targetIndex) => {
+        // Stop and reset all videos before moving
         slides.forEach(slide => {
-            const video = slide.querySelector('.testimonial-video');
+            const video = slide.querySelector('video');
             if (video) {
-                slide.addEventListener('mouseover', () => {
-                    // The play() method returns a promise, which we can catch
-                    // to prevent console errors if the play request is interrupted.
-                    video.play().catch(e => {
-                        console.log("Video play interrupted");
-                    });
-                });
-                slide.addEventListener('mouseout', () => {
-                    video.pause();
-                });
+                video.pause();
+                video.currentTime = 0;
+                video.muted = true; // Re-mute videos when not active
             }
         });
-        // --- END: NEW CODE FOR VIDEO PLAYBACK ---
 
-        let currentSlide = 0;
+        currentSlide = targetIndex;
+        updateSlidePositions();
+    };
 
-        const moveToSlide = (targetIndex) => {
-            track.style.transform = 'translateX(-' + slideWidth * targetIndex + 'px)';
-            currentSlide = targetIndex;
-        };
+    // Event listeners for arrow buttons
+    nextButton.addEventListener('click', () => {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        moveToSlide(nextIndex);
+    });
 
-        // When I click left, move slides to the left
-        prevButton.addEventListener('click', e => {
-            let prevIndex = currentSlide - 1;
-            if (prevIndex < 0) {
-                prevIndex = slides.length - 1; // Loop to the end
-            }
-            moveToSlide(prevIndex);
-        });
+    prevButton.addEventListener('click', () => {
+        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+        moveToSlide(prevIndex);
+    });
 
-        // When I click right, move slides to the right
-        nextButton.addEventListener('click', e => {
-            let nextIndex = currentSlide + 1;
-            if (nextIndex >= slides.length) {
-                nextIndex = 0; // Loop to the beginning
-            }
-            moveToSlide(nextIndex);
-        });
-    }
+    // Event listener for navigation dots
+    nav.addEventListener('click', (e) => {
+        const targetDot = e.target.closest('button');
+        if (!targetDot) return;
+
+        const targetIndex = dots.findIndex(dot => dot === targetDot);
+        moveToSlide(targetIndex);
+    });
+
+    // Event listeners for video playback with SOUND
+    slides.forEach((slide, index) => {
+        const video = slide.querySelector('.testimonial-video');
+        if (video) {
+            slide.addEventListener('mouseover', () => {
+                if (slide.classList.contains('current-slide')) {
+                    video.muted = false; // Unmute the active video on hover
+                    video.play().catch(e => console.log("Video play interrupted."));
+                }
+            });
+            slide.addEventListener('mouseout', () => {
+                video.pause();
+                video.muted = true; // Re-mute when mouse leaves
+            });
+        }
+    });
+
+    // Initialize the carousel
+    updateSlidePositions();
 });
