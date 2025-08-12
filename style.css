@@ -346,15 +346,15 @@ a.program-card-link:hover {
 }
 
 /* =================================
-   Testimonial Carousel Styles (V3 - Final)
+   Testimonial Carousel Styles (V4 - Wide)
    ================================= */
 .testimonial-carousel {
     position: relative;
-    width: 100%; /* Use full available width */
-    max-width: 90%; /* Make the carousel wider as requested */
+    width: 100%;
+    max-width: 1100px; /* INCREASED: Make the carousel container much wider */
     margin: 0 auto;
     height: 560px;
-    perspective: 1500px; /* Increase perspective for a deeper 3D effect */
+    perspective: 2000px; /* INCREASED: Adjust perspective for the wider layout */
 }
 
 .carousel-track-container {
@@ -383,34 +383,32 @@ a.program-card-link:hover {
     transition: transform 500ms ease-in-out, opacity 500ms ease-in-out, filter 500ms ease-in-out;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    opacity: 0; /* Start all slides as transparent */
+    opacity: 0;
     filter: blur(3px);
     transform: scale(0.7);
-    background-color: var(--card-bg); /* Add a solid background to prevent transparency issues */
+    background-color: var(--card-bg);
 }
 
-/* The current slide is centered, fully visible, and scaled up */
 .carousel-slide.current-slide {
     opacity: 1;
     filter: blur(0);
     transform: scale(1);
-    z-index: 5; /* Ensure it's on top */
+    z-index: 5;
 }
 
-/* The slide to the left */
 .carousel-slide.prev-slide {
-    transform: translateX(-55%) scale(0.8) rotateY(15deg);
+    /* INCREASED translateX to push the slide further left */
+    transform: translateX(-85%) scale(0.8) rotateY(20deg);
     opacity: 0.6;
     filter: blur(1px);
 }
 
-/* The slide to the right */
 .carousel-slide.next-slide {
-    transform: translateX(55%) scale(0.8) rotateY(-15deg);
+    /* INCREASED translateX to push the slide further right */
+    transform: translateX(85%) scale(0.8) rotateY(-20deg);
     opacity: 0.6;
     filter: blur(1px);
 }
-
 
 .testimonial-video {
     width: 100%;
@@ -448,8 +446,9 @@ a.program-card-link:hover {
     z-index: 10;
 }
 
-.carousel-button--left { left: 20px; }
-.carousel-button--right { right: 20px; }
+/* MOVED buttons further out to the edges */
+.carousel-button--left { left: 0px; }
+.carousel-button--right { right: 0px; }
 
 .carousel-nav {
     display: flex;
