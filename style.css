@@ -346,42 +346,69 @@ a.program-card-link:hover {
 }
 
 /* =================================
-   Testimonial Carousel Styles
+   Testimonial Carousel Styles (V2)
    ================================= */
 .testimonial-carousel {
     position: relative;
-    max-width: 320px; /* Width of a phone-style video */
+    max-width: 800px; /* Widen the container to see other slides */
     margin: 0 auto;
-    height: 520px;
+    height: 560px; /* Adjust height slightly for nav dots */
+    perspective: 1000px; /* This is crucial for the 3D effect */
 }
 
 .carousel-track-container {
-    height: 100%;
-    overflow: hidden;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    height: 520px; /* The track container holds the slides */
+    overflow: visible; /* Allow overflowing slides to be seen */
+    position: relative;
 }
 
 .carousel-track {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
     height: 100%;
-    transition: transform 250ms ease-in;
+    transition: transform 500ms ease-in-out; /* Smoother transition */
+    transform-style: preserve-3d; /* Key for 3D positioning */
 }
 
 .carousel-slide {
-    position: relative;
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto; /* Center the slides */
+    width: 320px; /* Width of the phone-style video */
+    height: 520px;
+    transition: transform 500ms ease-in-out, opacity 500ms ease-in-out, filter 500ms ease-in-out;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    opacity: 0.4;
+    filter: blur(2px);
+    transform: scale(0.8);
 }
+
+.carousel-slide.current-slide {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+}
+
+.carousel-slide.prev-slide {
+    transform: translateX(-60%) scale(0.8);
+    opacity: 0.6;
+}
+
+.carousel-slide.next-slide {
+    transform: translateX(60%) scale(0.8);
+    opacity: 0.6;
+}
+
 
 .testimonial-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This is key: it crops videos to fill the space */
+    object-fit: cover;
+    border-radius: var(--border-radius); /* Ensure video corners are rounded */
 }
 
 .testimonial-overlay {
@@ -393,6 +420,7 @@ a.program-card-link:hover {
     color: white;
     padding: 2rem 1rem 1rem;
     text-align: left;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 .testimonial-overlay p {
     font-size: 0.9rem;
@@ -414,7 +442,28 @@ a.program-card-link:hover {
     cursor: pointer;
     font-size: 1.5rem;
     color: #333;
+    z-index: 10; /* Ensure buttons are on top */
 }
 
-.carousel-button--left { left: -20px; }
-.carousel-button--right { right: -20px; }
+.carousel-button--left { left: 0px; } /* Adjust position */
+.carousel-button--right { right: 0px; } /* Adjust position */
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.carousel-indicator {
+    border: none;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.carousel-indicator.current-slide {
+    background: var(--primary-color);
+}
